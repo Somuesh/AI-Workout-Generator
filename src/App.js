@@ -4,8 +4,7 @@ import { Stack } from '@mui/material';
 import { Output } from './components/Output/Output';
 import { NavBar } from './components/NavBar/NavBar';
 
-import { createContext, useEffect, useState } from 'react';
-import axios from 'axios';
+import { createContext, useState } from 'react';
 import { LandingPage } from './pages/LandingPage';
 import { ToastContainer } from 'react-toastify';
 
@@ -29,19 +28,9 @@ function App() {
     duration: '',
     gender: '',
   }
-  const [userPref, setUserPref] = useState(initialState)
+  const [userPref, setUserPref] = useState(initialState);
 
-  useEffect(() => {
-    const fetchInfo = async (value) => {
-      console.log(value)
-      const url = 'https://reqres.in/api/users?page='+value
-      const {data} = await axios.get(url)
-      console.log("API call: ", url, data.data)
-      return data;
-    }
 
-    fetchInfo(userPref.age);
-  }, [userPref])
 
   const [showResult, setShowResult] = useState(false);
 
