@@ -18,7 +18,7 @@ export const Output = () => {
       const response = await fetch(`https://api.api-ninjas.com/v1/exercises?muscle=${muscles}&difficulty=${fitness}`, {
         mode: 'cors',
         headers: {
-          'X-Api-Key': 'qV3Lg2HEB1eWAd0FkorkmA==AG6otZTyr8dR0dEy'
+          'X-Api-Key': 'MY_API_KEY'
         }
       });
       const data = await response.json();
