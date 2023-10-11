@@ -4,6 +4,7 @@ import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';
 import AlarmOnIcon from '@mui/icons-material/AlarmOn';
 import FemaleIcon from '@mui/icons-material/Female';
 import MaleIcon from '@mui/icons-material/Male';
+import SelfImprovementIcon from '@mui/icons-material/SelfImprovement';
 import { FormContext } from '../../App';
 import { toast } from 'react-toastify';
 
@@ -53,6 +54,7 @@ export const ChoiceForm = () => {
                         }}>
                             <TextField
                                 // label="Muscle Group"
+                                select
                                 variant="outlined"
                                 sx={{
                                     marginTop: '0.5rem',
@@ -62,14 +64,29 @@ export const ChoiceForm = () => {
                                 }}
                                 value={newPreference.muscle_group}
                                 placeholder='Muscle Group'
+                                InputProps={{
+                                        startAdornment: <InputAdornment position="start"><Icon><SelfImprovementIcon /></Icon></InputAdornment>,
+                                    }}
                                 required
                                 onChange={(e) => setNewPreference((prev) => ({ ...prev, muscle_group: e.target.value }))}
-                            />
-                            <Typography variant='caption' color={'#fff'} >*Biceps, Triceps, Abdomnial, Chest, Legs, or Full Body</Typography>
+                            >
+                                <MenuItem value="" checked>Muscle group</MenuItem>
+                                    <MenuItem value="abdominals">Abdominals</MenuItem>
+                                    <MenuItem value="biceps">Biceps</MenuItem>
+                                    <MenuItem value="calves">Calves</MenuItem>
+                                    <MenuItem value="forearms">Forearms</MenuItem>
+                                    <MenuItem value="middle_back">Middle back</MenuItem>
+                                    <MenuItem value="lower_back">Lower back</MenuItem>
+                                    <MenuItem value="neck">Neck</MenuItem>
+                                    <MenuItem value="quadriceps">Quadriceps</MenuItem>
+                                    <MenuItem value="triceps">Triceps</MenuItem>
+                            </TextField>
+                            {/* <Typography variant='caption' color={'#fff'} >*Biceps, Triceps, Abdomnial, Chest, Legs, or Full Body</Typography> */}
                             <Box>
                                 <TextField
                                     // label="Fitness level"
                                     variant="outlined"
+                                    select
                                     required
                                     sx={{
                                         marginTop: '0.5rem',
@@ -83,7 +100,12 @@ export const ChoiceForm = () => {
                                         startAdornment: <InputAdornment position="start"><Icon><FitnessCenterIcon /></Icon></InputAdornment>,
                                     }}
                                     onChange={(e) => setNewPreference((prev) => ({ ...prev, fitness: e.target.value }))}
-                                />
+                                >   
+                                    <MenuItem value="" checked>Fitness Level</MenuItem>
+                                    <MenuItem value="beginner">Beginner</MenuItem>
+                                    <MenuItem value="intermediate">Intermediate</MenuItem>
+                                    <MenuItem value="expert">Expert</MenuItem>
+                                </TextField>
                                 <TextField
                                     // label="Duration"
                                     variant="outlined"
@@ -109,7 +131,7 @@ export const ChoiceForm = () => {
                                     <MenuItem value="3-hour">3 hour</MenuItem>
 
                                 </TextField>
-                                <Typography variant='caption' color={'#fff'} >*Begineer, Intermediate, Expert, Athlete</Typography>
+                                {/* <Typography variant='caption' color={'#fff'} >*Begineer, Intermediate, Expert, Athlete</Typography> */}
                             </Box>
 
                             <Box>
